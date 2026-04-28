@@ -70,7 +70,7 @@ adb shell
 <img width="1110" height="107" alt="10" src="https://github.com/user-attachments/assets/428d9e1f-d6df-442c-a437-2eec4162a496" />
 👉 Le serveur est lancé en arrière-plan.
 
-🔗 6. Test de connexion
+# 🔗 6. Test de connexion
 frida-ps -U
 <img width="1072" height="538" alt="11" src="https://github.com/user-attachments/assets/a875acb5-cfb4-4c12-a43f-08df14b8e725" />
 frida-ps -Uai
@@ -154,12 +154,12 @@ frida-ps -U
 👉 fonctionnement restauré
 
 # 10. Résultats
-Frida correctement installé ✔️
-Connexion Android réussie ✔️
-Injection de script validée ✔️
-Analyse dynamique réalisée ✔️
-Hooks réseau et fichiers testés ✔️
-Dépannage effectué ✔️
+- Frida correctement installé 
+- Connexion Android réussie 
+- Injection de script validée 
+- Analyse dynamique réalisée
+- Hooks réseau et fichiers testés 
+- Dépannage effectué 
 
 ## 11. Conclusion
 
