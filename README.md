@@ -1,6 +1,6 @@
-## Rapport du LAB 10 : Guide d'installation de Frida
+# Rapport du LAB 10 : Guide d'installation de Frida
 
-# 1. Introduction
+## 1. Introduction
 
 Dans le cadre de ce TP, nous avons utilisé l’outil Frida, une plateforme d’instrumentation dynamique permettant d’analyser et de modifier le comportement d’une application en temps réel.
 
@@ -12,7 +12,7 @@ injecter du code JavaScript dans une application ;
 observer son comportement interne (réseau, mémoire, fichiers) ;
 simuler et résoudre une panne.
 
-# 2. Objectifs du lab
+## 2. Objectifs du lab
 - Installer Frida (CLI + Python)
 - Déployer frida-server sur Android
 - Tester la connexion PC ↔ Android
@@ -21,14 +21,14 @@ simuler et résoudre une panne.
 - Observer réseau / fichiers / crypto
 - Diagnostiquer et corriger une panne
 
-# 3. Environnement utilisé
+## 3. Environnement utilisé
 - OS : Windows
 - Python : 3.14
 - Frida : 17.9.1
 - Android Emulator : Pixel 5 (x86_64)
 - ADB : Android Platform Tools
 
-# 4. Installation de Frida
+## 4. Installation de Frida
 
 Installation via pip : python -m pip install --upgrade frida frida-tools
 <img width="1097" height="87" alt="1" src="https://github.com/user-attachments/assets/8068c96e-9c2e-4edc-ade9-7195eadac1f8" />
@@ -44,33 +44,33 @@ python -c "import frida; print(frida.__version__)"
 
 -->  Résultat : Frida correctement installé.
 
-# 5. Déploiement sur Android
+## 5. Déploiement sur Android
 
-# 🔎 Architecture
+### 🔎 Architecture
 
 L’émulateur utilise : x86_64
 <img width="805" height="650" alt="5" src="https://github.com/user-attachments/assets/9f1aa7de-d3e2-4f4f-8896-fe3be774234e" />
 
-# 📥 Téléchargement
+### 📥 Téléchargement
 
 Téléchargement depuis GitHub :frida-server-17.9.1-android-x86_64.xz
 <img width="1915" height="770" alt="8" src="https://github.com/user-attachments/assets/5416f13f-2d7f-4506-9285-b21de23ae8a5" />
 
-# 📦 Déploiement
+### 📦 Déploiement
 adb push frida-server /data/local/tmp/
 <img width="1105" height="83" alt="9" src="https://github.com/user-attachments/assets/e423c180-c973-4612-af70-ef58305c1f03" />
 
-# 🔐 Permissions
+### 🔐 Permissions
 adb shell chmod +x /data/local/tmp/frida-server
 <img width="1110" height="107" alt="10" src="https://github.com/user-attachments/assets/363e3328-da10-43fc-a748-766b8deb676d" />
 
-# ▶️ Lancement
+### ▶️ Lancement
 adb shell
 /data/local/tmp/frida-server-17.9.1-android-x86_64 &
 <img width="1110" height="107" alt="10" src="https://github.com/user-attachments/assets/428d9e1f-d6df-442c-a437-2eec4162a496" />
 👉 Le serveur est lancé en arrière-plan.
 
-# 🔗 6. Test de connexion
+## 🔗 6. Test de connexion
 frida-ps -U
 <img width="1072" height="538" alt="11" src="https://github.com/user-attachments/assets/a875acb5-cfb4-4c12-a43f-08df14b8e725" />
 frida-ps -Uai
@@ -82,7 +82,7 @@ frida-ps -Uai
 
 ✔️ connexion réussie
 
-# 🧪 7. Injection de script
+## 🧪 7. Injection de script
 📄 Script hello.js
 Java.perform(function () {
   console.log("[+] Frida Java.perform OK");
@@ -93,13 +93,13 @@ Java.perform(function () {
 frida -U -f com.android.settings -l hello.js
 <img width="1090" height="376" alt="14" src="https://github.com/user-attachments/assets/5eae2128-45a6-4987-8d37-0fc70219ea63" />
 
-# Résultat 
+### Résultat 
 [+] Frida Java.perform OK
 👉 confirme que :
 - le script est injecté
 - Frida fonctionne correctement
 
-# 🧠 8. Console interactive
+## 8. Console interactive
 
 Utilisation de commandes :
 
@@ -126,7 +126,7 @@ Java.available
 - environnement Java
 
 
-# 🛠️ 9. Dépannage
+## 🛠️ 9. Dépannage
 ❌ Problème simulé
 
 Arrêt du serveur : adb shell pkill -f frida
@@ -137,7 +137,7 @@ frida-ps -U
 <img width="711" height="60" alt="23" src="https://github.com/user-attachments/assets/1d5db96b-c512-42b7-8008-981b2dc8c16d" />
 👉 erreur : inaccessible or not found !
 
-🔎 Diagnostic
+### 🔎 Diagnostic
 adb shell ps | findstr frida
 <img width="676" height="75" alt="24" src="https://github.com/user-attachments/assets/d1c97815-e98c-4602-83d9-7151a782be09" />
 👉 aucun processus → serveur arrêté
@@ -153,7 +153,7 @@ frida-ps -U
 
 👉 fonctionnement restauré
 
-# 10. Résultats
+## 10. Résultats
 - Frida correctement installé 
 - Connexion Android réussie 
 - Injection de script validée 
