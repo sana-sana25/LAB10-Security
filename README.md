@@ -1,4 +1,4 @@
-# Rapport du LAB 10 : Guide d'installation de Frida
+# Rapport du LAB 10 : Installation et Utilisation de Frida
 
 ## 1. Introduction
 
